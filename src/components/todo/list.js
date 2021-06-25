@@ -1,26 +1,20 @@
 import React from 'react';
-import {ListGroup} from 'react-bootstrap';
+import './todo.scss';
 
-function TodoList(props) {
-
+export default function TodoList(props) {
   return (
-    <ListGroup>
-      {props.list.map(item => (
-        <>
-        <ListGroup.Item
-          className={`complete-${item.complete.toString()}`}
-          key={item._id}
-          variant={`${item.complete ?"danger":"success"}`}
-        >
-    
-        <span style={{cursor: 'pointer'}} onClick={() => props.handleComplete(item._id)}>
-          {item.text}, {item.assignee}
-        </span>
-        </ListGroup.Item>
-        </>
-      ))}
-    </ListGroup>
+    <>
+      <ul>
+        {props.list.map(item => (
+          <li className={`complete-${item.complete.toString()}`} key={item._id}>
+            <span >{item.text}</span>
+            <span>{item.assignee}</span>
+            <span>{item.difficulty}</span>
+            <span onClick={() => props.handleDelete(item._id)}>x</span>
+            <span onClick={() => props.handleComplete(item._id)}>{item.complete?'complete': 'pending'}</span>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
-
-export default TodoList;

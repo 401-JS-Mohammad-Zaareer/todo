@@ -1,19 +1,10 @@
-import React, {useState} from 'react';
-import  {Form, Button} from 'react-bootstrap';
+import React from 'react';
+import {Form, Button} from 'react-bootstrap';
+import useForm from '../../hooks/useForm';
 
 function TodoForm (props) {
-  const [item, setItem] = useState({});
 
-  const handleInputChange = e => {
-    setItem({ item: {...item, [e.target.name]: e.target.value } });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    e.target.reset();
-    props.handleSubmit(item);
-    setItem({});
-  };
+  const [handleChange, handleSubmit] = useForm(props.handleSubmit);
 
   return (
     <>
@@ -24,16 +15,28 @@ function TodoForm (props) {
           <Form.Control
             name="text"
             placeholder="Add To Do List Item"
-            onChange={handleInputChange}
+            onChange={handleChange}
+            required
           />
         </Form.Label>
         <Form.Label>
           <span>Difficulty Rating</span>
-          <Form.Control defaultValue="1" type="range" min="1" max="5" name="difficulty" onChange={handleInputChange} />
+          <Form.Control
+            type="range"
+            name="difficulty" 
+            min="1" 
+            max="5" 
+            defaultValue="1" 
+            onChange={handleChange} />
         </Form.Label>
         <Form.Label>
           <span>Assigned To</span>
-          <Form.Control type="text" name="assignee" placeholder="Assigned To" onChange={handleInputChange} />
+          <Form.Control 
+            type="text" 
+            name="assignee" 
+            placeholder="Assigned To" 
+            onChange={handleChange}
+            required />
         </Form.Label>
         <Button variant="primary" type="submit">Add Item</Button>
       </Form>

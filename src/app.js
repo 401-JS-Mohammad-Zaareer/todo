@@ -1,4 +1,4 @@
-import ToDo from './components/todo/todo.js';
+import ToDo from './components/todo/todo';
 
 export default function App() {
   return(

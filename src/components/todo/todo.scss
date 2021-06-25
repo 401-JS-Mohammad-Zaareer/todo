@@ -1,6 +1,6 @@
 body, html {
     height: 100%;
-    margin: 10px;
+    margin: 0;
     padding:0;
     width: 100%;
 }
@@ -73,10 +73,9 @@ body, html {
                 }
             }
              span, input {
-                 border: .5px solid #eee;
                  display:inline-block;
                  padding: .2em .25em;
-                 width: 300px;
+                 width: 100px;
              }
 
             button {
