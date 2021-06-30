@@ -3,6 +3,7 @@ import TodoForm from './form.js';
 import TodoList from './list.js';
 import useAjax from '../../hooks/useAjax';
 import './todo.scss';
+import ConfigurationsForm from './configurations';
 
 export default function ToDo() {
   const [list, setList] = useState([]);
@@ -28,7 +29,9 @@ export default function ToDo() {
         <div>
           <TodoForm handleSubmit={addItem} />
         </div>
-
+        <div>
+          <ConfigurationsForm/>
+        </div>
         <div>
           <TodoList
             list={list}

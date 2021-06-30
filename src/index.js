@@ -1,10 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactDOM from 'react-dom';
 import App from './app.js';
+import ConfigurationsProvidor from './context/configurations.js';
 
 function Main() {
   return(
-    <App/>
+    <ConfigurationsProvidor>
+      <App/>
+    </ConfigurationsProvidor>
   );
 }
 

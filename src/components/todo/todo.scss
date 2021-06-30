@@ -1,7 +1,7 @@
 body, html {
     height: 100%;
     margin: 0;
-    padding:0;
+    padding:1em;
     width: 100%;
 }
 .todo-details {
@@ -33,7 +33,7 @@ body, html {
 
         display:flex;
         flex-direction:column;
-        margin-right: 2em;
+        margin-right: 10em;
 
         label {
             display: flex;
@@ -44,8 +44,13 @@ body, html {
 
     ul {
         list-style-type:none;
-        margin:0;
+        margin-left:4em;
         padding:0;
+
+        button {
+            margin-top: 1em;
+            margin-left: 7em;
+        }
 
         li {
 
@@ -56,16 +61,19 @@ body, html {
             margin: .75em .5em;
 
             &.complete-true {
-              span {
+              div {
                 background: pink;
-                text-decoration:line-through;
+                span {
+
+                    text-decoration:line-through;
+                }
                 &:hover {
                    background: seagreen;
                 }
               }
             }
 
-            span {
+            div {
                 background: #e0e0e0;
                 cursor:pointer;
                 &:hover {
